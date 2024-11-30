@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
+import { errorMonitor } from "stream";
 
 export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
@@ -26,21 +27,12 @@ export async function POST(req: NextRequest) {
     text: `${message}`,
   };
 
-  const SendMailPromise = () =>
-    new Promise<string>((resolve, reject) => {
-      transport.sendMail(mailOptions, function (err) {
-        if (!err) {
-          resolve("Email sent");
-        } else {
-          reject(err.message);
-        }
-      });
-    });
-
   try {
-    await SendMailPromise();
+    // Use the Promise version of sendMail
+    await transport.sendMail(mailOptions);
     return NextResponse.json({ message: "Email sent" });
   } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 });
+    console.error("Error sending email:", err);
+    return NextResponse.json({ error: err || "Unknown error" }, { status: 500 });
   }
 }
