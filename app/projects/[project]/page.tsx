@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import arrow from "@/public/arrow.png";
 import Image from "next/image";
 import Link from "next/link";
+import Video from 'next-video'
 
 type Props = {
   params: { project: string };
@@ -62,9 +63,9 @@ export default function ProjectPage({ params }: Props) {
           </Link>
           <div className="h-fit relative flex justify-center ">
             {video ? (
-              <video controls autoPlay className="md:w-[85%]">
+              <Video controls className="md:w-[85%]">
                 <source src={video} type="video/mp4" />
-              </video>
+              </Video>
             ) : language === "FR" ? (
               <p className="md:my-56 my-44 text-xl ">VIDEO NON DISPONIBLE</p>
             ) : (

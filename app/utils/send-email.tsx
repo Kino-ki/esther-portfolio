@@ -12,12 +12,10 @@ export async function sendEmail(data: FormData): Promise<number> {
       body: JSON.stringify(data),
     });
 
-    // Return the response status
     return res.status;
   } catch (err) {
     console.error("Error sending email:", err);
     
-    // Return 500 if there was an error
     return 500;
   }
 }

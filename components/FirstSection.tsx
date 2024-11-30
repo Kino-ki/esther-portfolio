@@ -4,7 +4,7 @@ import { PortableText, PortableTextBlock } from "@portabletext/react";
 import { useLanguage } from "./BilingualProvider/LangProvider";
 import { useEffect, useState } from "react";
 import { FirstSectionTypes } from "@/types/FirstSectionTypes";
-
+import BackgroundVideo from "next-video/background-video";
 
 
 export default function FirstSection() {
@@ -24,20 +24,14 @@ export default function FirstSection() {
   }
 
   const { video, title, description } = sectionData;
-
+console.log(video)
   return (
-    <div className=" flex flex-col md:h-[90vh] h-screen overflow-hidden justify-center pb-32">
+    <div className=" flex flex-col h-screen overflow-hidden justify-center pb-32">
       <div className="min-w-screen ">
         {video && (
-          <video
-            autoPlay
-            muted
-            playsInline
-            loop
-            className="scale-[3.5] h-full mt-12 lg:scale-[0px] md:mt-1"
-          >
-            <source src={video} type="video/mp4" />
-          </video>
+          <BackgroundVideo src={video}
+            className="scale-[3.5] h-full mt-12 lg:scale-[0px] md:mt-1"          >
+          </BackgroundVideo>
         )}
       </div>
       <div className= "flex justify-center backdrop-blur-[1.5px] bg-[#292525]/20 top-0  w-full h-full z-40 absolute">
