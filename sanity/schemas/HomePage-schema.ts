@@ -19,6 +19,7 @@ const homepage = {
       title: "Title",
       type: "string",
     },
+
     {
       name: "description",
       title: "Description",
