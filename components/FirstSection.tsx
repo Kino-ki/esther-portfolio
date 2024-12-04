@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { FirstSectionTypes } from "@/types/FirstSectionTypes";
 // import BackgroundVideo from "next-video/background-video";
 import { MediaPlayer, MediaProvider } from '@vidstack/react';
-import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/layouts/default';
 
 
 export default function FirstSection() {
@@ -16,7 +15,6 @@ export default function FirstSection() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getFirstSection();
-      console.log("Fetched data:", data);
       setSectionData(data[0]);
     };
     fetchData();
@@ -35,6 +33,7 @@ export default function FirstSection() {
         {video && (
           <MediaPlayer
           autoPlay
+          playsInline
           loop
           muted
           src={video}

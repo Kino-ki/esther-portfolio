@@ -38,7 +38,7 @@ export default function WorksSection() {
               key={work._id}
               onMouseEnter={() => setHoveredWorkId(work._id)}
               onMouseLeave={() => setHoveredWorkId(null)}
-              className="flex md:w-[100%] lg:h-[18rem] w-screen h-60  overflow-hidden relative "
+              className="flex md:w-[100%] md:h-[20rem] w-screen h-52 overflow-hidden relative items-center  "
             >
               <Image
                 src={work.image}

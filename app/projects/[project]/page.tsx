@@ -80,11 +80,11 @@ export default function ProjectPage({ params }: Props) {
                 {language === "EN" ? <p>-{title.en}</p> : <p>-{title.fr}</p>}
               </h1>
               <h2 className="md:text-5xl">
-                {/* {language === "EN" ? (
+                {language === "EN" ? (
                   <p>{category.en}</p>
                 ) : (
                   <p>{category.fr}</p>
-                )} */}
+                )}
               </h2>
             </div>
             <h3 className="text-3xl">{year}</h3>
