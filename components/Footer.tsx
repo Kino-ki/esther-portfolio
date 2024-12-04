@@ -11,7 +11,7 @@ export default function Footer() {
     <div>
       {!pathname.includes("admin") && (
         <div className=" h-32 w-full text-xs md:text-base flex justify-end md:px-32 px-10">
-          <p className="sticky opacity-70 mx-auto flex flex-col justify-center">
+          <p className="sticky opacity-70 mx-auto flex flex-col justify-center mt-10">
             {" "}
             Copyright © 2024 ESTHER LHUILLERY
           </p>

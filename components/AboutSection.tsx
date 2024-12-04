@@ -39,7 +39,7 @@ export default function AboutSection() {
   }
   return (
     <div className="flex flex-col justify-start py-20">
-      <div className="flex items-center w-full justify-center h-[12rem] bg-fixed bg-parallax bg-cover drop-shadow-xl">
+      <div className="flex items-center w-full justify-center h-[12rem] md:bg-fixed bg-parallax bg-[length:800px_500px] md:bg-auto drop-shadow-xl">
       </div>
 
       {sectionData && (
