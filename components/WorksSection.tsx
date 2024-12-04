@@ -36,7 +36,7 @@ export default function WorksSection() {
     timerRef.current = setTimeout(() => {
       isLongPress.current = true;
       setHoveredWorkId(id); 
-    }, 500);
+    }, 300);
   };
 
   const handleTouchEnd = () => {
