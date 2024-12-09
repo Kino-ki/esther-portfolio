@@ -75,11 +75,11 @@ export default function ProjectPage({ params }: Props) {
             )}
           </div>
           <div className="flex flex-col gap-3">
-            <div className="flex flex-row-reverse justify-center align-middle pt-20">
-              <h1 className="md:text-6xl ">
-                {language === "EN" ? <p>-{title.en}</p> : <p>-{title.fr}</p>}
+            <div className="flex flex-col-reverse justify-center align-middle pt-20">
+              <h1 className="md:text-6xl text-3xl">
+                {language === "EN" ? <p>{title.en}</p> : <p>{title.fr}</p>}
               </h1>
-              <h2 className="md:text-5xl">
+              <h2 className="md:text-3xl">
                 {language === "EN" ? (
                   <p>{category.en}</p>
                 ) : (
@@ -87,7 +87,7 @@ export default function ProjectPage({ params }: Props) {
                 )}
               </h2>
             </div>
-            <h3 className="text-3xl">{year}</h3>
+            <h3 className="md:text-3xl">{year}</h3>
           </div>
         </div>
       )}
