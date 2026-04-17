@@ -1,31 +1,16 @@
 "use client";
-import { getFirstSection } from "@/sanity/sanity-utils";
-import { PortableText, PortableTextBlock } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import { useLanguage } from "./BilingualProvider/LangProvider";
-import { useEffect, useState } from "react";
 import { FirstSectionTypes } from "@/types/FirstSectionTypes";
-// import BackgroundVideo from "next-video/background-video";
 import { MediaPlayer, MediaProvider } from '@vidstack/react';
 
+type Props = {
+  data: FirstSectionTypes;
+};
 
-export default function FirstSection() {
-  const [sectionData, setSectionData] = useState<FirstSectionTypes | null>(null);
+export default function FirstSection({ data }: Props) {
   const { language } = useLanguage();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getFirstSection();
-      setSectionData(data[0]);
-    };
-    fetchData();
-  }, []);
-
-  if (!sectionData || !sectionData.video) {
-    return <div>Loading...</div>;
-  }
-
-  const { video, title, description } = sectionData;
-
+  const { video, title, description } = data;
 
   return (
     <div className=" flex flex-col h-screen overflow-hidden justify-center pb-32">

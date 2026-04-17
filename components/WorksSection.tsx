@@ -1,48 +1,32 @@
 "use client";
-import { getWorksSection } from "@/sanity/sanity-utils";
 import { useLanguage } from "./BilingualProvider/LangProvider";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { WorksSectionTypes } from "@/types/worksSectionTypes";
 
-export default function WorksSection() {
+type Props = {
+  data: WorksSectionTypes[];
+};
+
+export default function WorksSection({ data }: Props) {
   const { language } = useLanguage();
-  const [sectionData, setSectionData] = useState<WorksSectionTypes[] | null>(
-    null
-  );
   const [hoveredWorkId, setHoveredWorkId] = useState<string | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const isLongPress = useRef(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getWorksSection();
-      setSectionData(data);
-    };
-    fetchData();
-
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
-  if (!sectionData) {
-    return <div>Loading...</div>;
-  }
 
   const handleTouchStart = (id: string) => {
     isLongPress.current = false;
     timerRef.current = setTimeout(() => {
       isLongPress.current = true;
-      setHoveredWorkId(id); 
+      setHoveredWorkId(id);
     }, 300);
   };
 
   const handleTouchEnd = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (!isLongPress.current) {
-      setHoveredWorkId(null); 
+      setHoveredWorkId(null);
     }
   };
 
@@ -60,7 +44,7 @@ export default function WorksSection() {
         {language === "FR" ? <p>PROJETS</p> : <p>WORKS</p>}
       </h1>
       <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 flex flex-col justify-start gap-2 md:mx-5">
-        {sectionData.map((work) => (
+        {data.map((work) => (
           <Link
             href={`/projects/${work.slug}/`}
             key={work._id}

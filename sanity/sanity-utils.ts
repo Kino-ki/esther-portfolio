@@ -4,9 +4,10 @@ import { FirstSectionTypes } from "@/types/FirstSectionTypes";
 import { WorksSectionTypes } from "@/types/worksSectionTypes";
 import { AboutTypes } from "@/types/aboutTypes";
 
+const client = createClient(config);
+
 export async function getFirstSection(): Promise<FirstSectionTypes[]> {
-  const client = createClient(config);
-  let res = client.fetch(
+  return client.fetch(
     groq`*[_type == "homepage"]{
         _id,
         _createdAt,
@@ -14,27 +15,27 @@ export async function getFirstSection(): Promise<FirstSectionTypes[]> {
         title,
         "slug" : slug.current,
         description
-        }`
+        }`,
+    {},
+    { next: { revalidate: 3600 } }
   );
-  return res;
 }
 
 export async function getAboutSection(): Promise<AboutTypes[]> {
-  const client = createClient(config);
-  let res = await client.fetch(
+  return client.fetch(
     groq`*[_type == "about"]{
             _id,
         _createdAt,
         title,
         content
-    } `
+    }`,
+    {},
+    { next: { revalidate: 3600 } }
   );
-  return res;
 }
 
 export async function getWorksSection(): Promise<WorksSectionTypes[]> {
-  const client = createClient(config);
-  let res = await client.fetch(
+  return client.fetch(
     groq`*[_type == "work"] | order(_createdAt desc) {
     _id,
     _createdAt,
@@ -43,14 +44,14 @@ export async function getWorksSection(): Promise<WorksSectionTypes[]> {
     "slug" : slug.current,
     "image": image.asset -> url,
     year
-    }  `
+    }`,
+    {},
+    { next: { revalidate: 3600 } }
   );
-
-  return res;
 }
+
 export async function getProject(slug: string): Promise<WorksSectionTypes> {
-  const client = createClient(config);
-  const res = await client.fetch(
+  return client.fetch(
     groq`*[_type=="work" && slug.current==$slug][0]{
       _id,
       _createdAt,
@@ -60,7 +61,7 @@ export async function getProject(slug: string): Promise<WorksSectionTypes> {
       "video": video.asset -> url,
       year
       }`,
-    { slug }
+    { slug },
+    { next: { revalidate: 3600 } }
   );
-  return res;
 }
