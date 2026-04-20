@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import LanguageContextProvider from "../components/BilingualProvider/LangProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Esther Portfolio",

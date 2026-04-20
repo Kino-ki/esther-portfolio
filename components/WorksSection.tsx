@@ -44,7 +44,7 @@ export default function WorksSection({ data }: Props) {
         {language === "FR" ? <p>PROJETS</p> : <p>WORKS</p>}
       </h1>
       <div className="lg:grid lg:grid-cols-3 md:grid md:grid-cols-2 flex flex-col justify-start gap-2 md:mx-5">
-        {data.map((work) => (
+        {data.map((work, index) => (
           <Link
             href={`/projects/${work.slug}/`}
             key={work._id}
@@ -57,9 +57,10 @@ export default function WorksSection({ data }: Props) {
             <Image
               src={work.image}
               alt={work.slug}
-              width={700}
-              height={111}
-              className={`object-cover relative ${
+              fill
+              priority={index === 0}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className={`object-cover ${
                 hoveredWorkId === work._id
                   ? `scale-110 transition-transform duration-500 ease-in-out`
                   : ""

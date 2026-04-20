@@ -1,4 +1,6 @@
 "use client";
+import '@vidstack/react/player/styles/default/theme.css';
+import '@vidstack/react/player/styles/default/layouts/video.css';
 import { PortableText } from "@portabletext/react";
 import { useLanguage } from "./BilingualProvider/LangProvider";
 import { FirstSectionTypes } from "@/types/FirstSectionTypes";
@@ -21,8 +23,10 @@ export default function FirstSection({ data }: Props) {
           playsInline
           loop
           muted
+          preload="metadata"
+          poster="/RectangleHeroVideo.png"
           src={video}
-            className="scale-[3.5] h-full mt-12 lg:scale-[0px] md:mt-10">
+            className="scale-[3.5] h-full mt-12 lg:scale-0 md:mt-10">
               <MediaProvider/>
               </MediaPlayer>
         )}
