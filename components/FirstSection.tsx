@@ -23,8 +23,6 @@ export default function FirstSection({ data }: Props) {
           playsInline
           loop
           muted
-          preload="metadata"
-          poster="/RectangleHeroVideo.png"
           src={video}
             className="scale-[3.5] h-full mt-12 lg:scale-0 md:mt-10">
               <MediaProvider/>
