@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import LanguageContextProvider from "../components/BilingualProvider/LangProvider";
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin"], display: "optional", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Esther Portfolio",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` bg-bgcolour text-[#E4E7D2]  ${inter.variable}`}>
+      <body className={` bg-bgcolour text-[#E4E7D2]  ${inter.variable} ${inter.className}`}>
         <LanguageContextProvider>
           <header className="absolute top-0 z-10">
             <NavBar />
