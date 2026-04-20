@@ -22,7 +22,7 @@ export default function FirstSection({ data }: Props) {
             loop
             muted
             src={video}
-            className="scale-[3.5] h-full mt-12 lg:scale-0 md:mt-10"
+            className="scale-[3.5] h-full mt-12 md:mt-10"
           >
             <MediaProvider />
           </MediaPlayer>
