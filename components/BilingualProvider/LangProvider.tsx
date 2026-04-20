@@ -15,9 +15,14 @@ export default function LanguageContextProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [language, setLanguage] = useState<string>(
-    getDefaultLang().toUpperCase()
-  );
+  const [language, setLanguage] = useState<string>("EN");
+
+  useEffect(() => {
+    // Sync with localStorage only after hydration to avoid server/client mismatch
+    const storedLang = getDefaultLang().toUpperCase();
+    setLanguage(storedLang);
+  }, []);
+
   useEffect(() => {
     const rootElement = document.querySelector("#root");
 
