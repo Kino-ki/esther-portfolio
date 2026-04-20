@@ -13,12 +13,12 @@ const config: Config = {
         textcolour: "#CFEB98",
       },
       backgroundImage: {
-        parallax: "url('/bgWhiterect.png')",
-        contactbg: "url('/infraredContact.png')",
+        parallax: "url('/bgWhiterect.webp')",
+        contactbg: "url('/infraredContact.webp')",
       },
     },
     fontFamily: {
-      primaryfont: ["Inter"],
+      primaryfont: ["var(--font-inter)", "Inter", "sans-serif"],
     },
   },
   plugins: [],
