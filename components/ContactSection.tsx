@@ -51,10 +51,10 @@ export default function ContactSection() {
 
   return (
     <div className="md:pb-10 relative flex flex-grow-0">
-      <div className="flex-col bg-contactbg h-[80vh] md:h-[85vh] w-[85%] bg-cover md:bg-fixed mx-auto md:ml-20">
+      <div className="flex-col bg-contactbg h-[80vh] md:h-[85vh] w-[85%] bg-cover md:bg-fixed mx-auto  ">
         {/* -------------------H1 + BUTTON + MESSAGE--------------------------- */}
         <div className="backdrop-blur-[1.5px] bg-[#292525]/20  w-full h-full">
-          <h1 className="md:text-8xl md:mb-20 text-[3.5rem] text-textcolour font-semibold leading-tight md:tracking-widest  pt-10 md:pt-32 md:pl-52 relative">
+          <h1 className="md:text-8xl md:mb-20 text-[3.5rem] text-textcolour font-semibold leading-tight md:tracking-widest  pt-10 md:pt-32 lg:pl-52 relative">
             CONTACT
           </h1>
 
@@ -87,7 +87,7 @@ export default function ContactSection() {
         </div>
         <div className="flex justify-center absolute top-36 inset-x-0  ">
           {/* ----------------- form -------------------------*/}
-          <div className="  p-3 rounded-lg  pb-8 md:hidden">
+          <div className="  p-3 rounded-lg  pb-8 md:hidden  w-full px-16">
             {isSent === 0 && (
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col ">

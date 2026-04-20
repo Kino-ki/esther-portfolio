@@ -63,7 +63,7 @@ export default function ContactModal({
         isOpen={openModal}
         onRequestClose={closeModal}
         overlayClassName="fixed inset-0 bg-bgcolour/80 flex justify-center "
-        className="flex flex-col justify-center max-h-screen w-full mx-[25%]"
+        className="flex flex-col justify-center max-h-screen w-full lg:mx-[25%] mx-20"
       >
         <div className=" bg-contactbg scale-110 bg-cover  rounded-lg">
           <form
@@ -124,7 +124,7 @@ export default function ContactModal({
 
               {loading ? (
                 <button className=" border-double border-spacing-5 border-2 border-black flex mx-auto py-3 px-6 mt-5">
-                  <Image src={loadIcon} alt="loading" width={30}/>
+                  <Image src={loadIcon} alt="loading" width={30} />
                 </button>
               ) : (
                 <button className=" border-double border-spacing-5 border-2 hover:border-black hover:text-black transition-colors duration-100 flex mx-auto py-3 px-6 mt-5">
